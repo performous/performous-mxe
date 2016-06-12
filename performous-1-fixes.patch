@@ -1,0 +1,30 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 73993f9..c05a9f1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+ include(GetGitRevisionDescription)
+ git_describe(PROJECT_VERSION --tags)
+ if(NOT PROJECT_VERSION)
+-	set(PROJECT_VERSION "1.1+")
++	set(PROJECT_VERSION "1.1")
+ endif()
+ 
+ message("Building ${PROJECT_NAME} ${PROJECT_VERSION}")
+diff --git a/game/main.cc b/game/main.cc
+index 3ac93ea..afc5832 100644
+--- a/game/main.cc
++++ b/game/main.cc
+@@ -33,6 +33,12 @@
+ #include <vector>
+ #include <cstdlib>
+ 
++#if defined(_WIN32)
++extern "C" {
++#include "windef.h"
++}
++#endif
++
+ // Disable main level exception handling for debug builds (because gdb cannot properly catch throwing otherwise)
+ #ifdef NDEBUG
+ #define RUNTIME_ERROR std::runtime_error
