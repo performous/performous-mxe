@@ -10,6 +10,6 @@ define $(PKG)_BUILD
     $(MAKE) -C '$(1)/build' -j '$(JOBS)' install
     '$(TOP_DIR)/tools/copydlldeps.sh' --infile "$(1)/stage/Performous.exe" --destdir "$(1)/stage" --recursivesrcdir "$(PREFIX)/$(TARGET)" --copy --objdump "$(TARGET)-objdump"
     $(TARGET)-strip "$(1)/stage/"*.dll "$(1)/stage/"*.exe
-    cd '$(1)' && MAKENSIS=$(TARGET)-makensis WINDRES=$(TARGET)-windres "./../../make-installer.py"
+    cd '$(1)' && MAKENSIS=$(TARGET)-makensis WINDRES=$(TARGET)-windres "./../../../make-installer.py"
     $(INSTALL) -m644 '$(1)/dist/'*.exe '$(PREFIX)/$(TARGET)/'
 endef
