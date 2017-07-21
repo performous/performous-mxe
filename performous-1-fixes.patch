@@ -11,6 +11,18 @@ index 73993f9..c05a9f1 100644
  endif()
  
  message("Building ${PROJECT_NAME} ${PROJECT_VERSION}")
+diff --git a/game/CmakeLists.txt b/game/CmakeLists.txt
+--- a - game/CMakeLists.txt
++++ b - game/CMakeLists.txt
+@@ -71,6 +71,7 @@
+ find_package(LibEpoxy 1.2 REQUIRED)
+ include_directories(${LibEpoxy_INCLUDE_DIRS})
+ list(APPEND LIBS ${LibEpoxy_LIBRARIES})
++add_definitions("-DEPOXY_SHARED")
+ 
+ # Find all the libs that don't require extra parameters
+ foreach(lib ${OUR_LIBS} SDL2 PangoCairo LibRSVG LibXML++ AVFormat AVResample SWScale Z Jpeg Png PortAudio Fontconfig JSONCPP Cppnetlib Crypto Ssl)
+ 
 diff --git a/game/main.cc b/game/main.cc
 index 3ac93ea..afc5832 100644
 --- a/game/main.cc
