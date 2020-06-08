@@ -1,13 +1,11 @@
-# Performous plugins for MXE
+# Performous-mxe
+This repo serves as a git submodule in the main repo.
+The script `make-release.sh` is used to create a release for Windows through MXE on Linux.
+The script can be executed as following:
 
-This repository adds receipes for Performous to MXE using MXE's plugin system.
-To build a Performous release, just add this directory to the MXE_PLUGIN_DIRS
-variable while building MXE (you can add MXE_PLUGIN_DIRS to settings.mk).
+    ./make-release.sh
 
-Running
+The installer will be an output of the above script.
 
-    make performous MXE_TARGETS=i686-w64-mingw32.shared
-
-in the MXE directory and you should find a finished installer in
-usr/i686-w64-mingw32.shared after the build is finished. Be aware that the
-build is only tested with the i686-w64-mingw32.shared target.
+This submodule lives on the following path in the main repo:
+https://github.com/performous/performous/tree/master/win32/performous-mxe
