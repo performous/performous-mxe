@@ -3,7 +3,7 @@ This repo contains the recipe needed for making a windows release of Performous 
 
 You need MXE (Check Lord-Kamina's performous branch on his fork); the `settings.mk`from this repo goes in the main mxe folder, and both the `performous-1-fixes.patch` and `performous.mk`go in plugins/performous under mxe.
 
-Once you're set-up, you just run `make performous``
+Once you're set-up, you just run `make performous`
 
 Of note, the recipe by default expects performous to be located in `~/`(your home directory), if that is not the case, append `PERFORMOUS_SOURCE="path/to/performous/source"` to the make command. Additionally, it's possible to create an executable with gdb-compatible debug symbols by adding `DEBUG=1`to the make command.
 
